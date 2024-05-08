@@ -1,0 +1,14 @@
+server:
+ port: 8091
+
+spring:
+ datasource:
+  url: jdbc:postgresql://localhost:5440/customer-service-db?user=root&password=toor
+ liquibase:
+  enabled: true
+  change-log: classpath:/db/changelog/db.changelog-master.xml
+ jpa:
+  open-in-view: false
+  properties:
+   hibernate:
+    default_schema: public

@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+
+ cs-db:
+  image: postgres:14.1
+  container_name: cs-db
+  restart: always
+  volumes:
+   - cs-posgresql:/data/lib
+  environment:
+   - POSTGRES_DB=customer-service-db
+   - POSTGRES_USER=root
+   - POSTGRES_PASSWORD=toor
+   - POSTGRES_HOST_AUTH_METHOD=trust
+  ports:
+   - '5440:5432'
+
+volumes:
+ cs-posgresql:
