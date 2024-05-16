@@ -13,6 +13,24 @@
     <property name="datetimeType" value="datetime(6)" dbms="mysql, mariadb"/>
     <property name="datetimeType" value="datetime" dbms="oracle, mssql, postgresql, h2"/>
 
-<!--    <include file="/db/changelog/v.0.0.1/99_main.xml"/>-->
+    <changeSet id="1_create_customers_table" author="ggrigorov">
+        <comment>Create customers table</comment>
+
+        <createTable tableName="customers">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="username" type="varchar(255)"/>
+
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2_customer_seq_gen" author="ggrigorov">
+        <comment>Add id sequence generator for customers table</comment>
+
+        <createSequence sequenceName="customer_seq_gen"
+                        startValue="1000"
+                        incrementBy="1"/>
+    </changeSet>
 
 </databaseChangeLog>
